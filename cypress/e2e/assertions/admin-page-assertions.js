@@ -21,7 +21,9 @@ class AdminPageAssertions extends BaseAssertions {
     verifyUserCreateSuccessfullyMessage() {
         cy.get(userDataPageLocators.userCreateSuccessfullyMessage).should('contain', 'Successfully Saved')  
     }
+
     
 }
+
 
 export default AdminPageAssertions;

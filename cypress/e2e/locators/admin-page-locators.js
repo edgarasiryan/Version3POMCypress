@@ -1,4 +1,6 @@
 const adminPageLocators = {
+    adminPageUrl: 'web/index.php/admin/viewSystemUsers',
+
     //Admin Top Bar Header
     adminBreadcrumb: '.oxd-text--h6.oxd-topbar-header-breadcrumb-module',
     

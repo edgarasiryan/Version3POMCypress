@@ -4,6 +4,8 @@ import LoginPageAssertions from "../assertions/login-assertions";
 import NavBarActions from "../actions/nav-bar-actions";
 import AdminPageActions from "../actions/admin-page-actions";
 import AdminPageAssertions from "../assertions/admin-page-assertions";
+import UserPageAssertions from "../assertions/user-page-assertions";
+import UserPageActions from "../actions/user-page-actions";
 
 describe('Test User Role Permissions Validation', () => {
     const baseActions = new BaseActions();
@@ -12,6 +14,8 @@ describe('Test User Role Permissions Validation', () => {
     const navBarActions = new NavBarActions();
     const adminPageAssertions = new AdminPageAssertions();
     const adminPageActions = new AdminPageActions();
+    const userPageAssertions = new UserPageAssertions();
+    const userPageActions = new UserPageActions()
 
     beforeEach(function () {
         baseActions.clearStorageAndCookies();
@@ -37,7 +41,9 @@ describe('Test User Role Permissions Validation', () => {
         loginPageAssertions.verifyLogoutSuccess();
         loginPageActions.login(this.generatedUser.username, this.generatedUser.password);
         loginPageAssertions.verifyLoginSuccess();
-
+        userPageAssertions.verifyAdminItemNotVisible();
+        userPageAssertions.verifyUserManagmentNotVisible();
+        userPageActions.tryGetAdminPage();
     });
     
   });
