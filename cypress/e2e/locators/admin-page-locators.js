@@ -34,6 +34,12 @@ const userDataPageLocators = {
     userRowSelector: '.oxd-table-row',
     editIconSelector: 'i.oxd-icon.bi-pencil-fill',
     userPageEditButtons: '.oxd-button--secondary',
+
+    // ==== User Search ====
+    searchInput: '.oxd-input.oxd-input--active:nth-child(1)',
+    searchButton: '.oxd-button--secondary',
+    userList: '.oxd-table-card',
+    userListCells: '.oxd-table-cell.oxd-padding-cell',
    
     // ==== CHANGE PASSWORD ====
     userChangePasswordChackBox: '.oxd-checkbox-wrapper input[type="checkbox"]',

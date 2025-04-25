@@ -35,7 +35,7 @@ describe('Test User Role Permissions Validation', () => {
         navBarActions.navigateAdminTab();
         adminPageAssertions.verifyAdminPageIsOpen();
         adminPageActions.clickAddButton();
-        adminPageActions.createRandomEssUser(this.generatedUser);
+        adminPageActions.addRandomEssUser(this.generatedUser);
         adminPageAssertions.verifyUserCreateSuccessfullyMessage();
         navBarActions.logOut();
         loginPageAssertions.verifyLogoutSuccess();

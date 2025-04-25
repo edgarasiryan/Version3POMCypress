@@ -1,12 +1,15 @@
+import BaseActions from "./base-actions";
 import { adminPageLocators } from "../locators/admin-page-locators";
 import { adminBarBodyItems, usersTableLocators, userDataPageLocators } from "../locators/admin-page-locators";
+import AdminPageAssertions from "../assertions/admin-page-assertions";
 
-class AdminPageActions{
+const adminPageAsserions = new AdminPageAssertions();
+
+class AdminPageActions extends BaseActions{
     getUserManagmentTab() {
         cy.get(adminPageLocators.adminTopBarTabItems).contains(adminBarBodyItems.userManagement).click();
     }
     
-
     getUsersFromDropDown() {
         cy.get(adminPageLocators.adminDropDownItems).contains(adminBarBodyItems.userInUserManagment).click()
     }
@@ -33,10 +36,10 @@ class AdminPageActions{
         cy.get(userDataPageLocators.userPageEditButtons).contains('Add').click();
     }
 
-    createRandomEssUser(user) {
+    addRandomEssUser(user) {
         cy.get(userDataPageLocators.userRoleDropdown).eq(0).click();
         cy.get(userDataPageLocators.userRoleOptionESS).contains('ESS').click();
-        cy.get(userDataPageLocators.employeeNameInput).type('a').wait(2500);
+        cy.get(userDataPageLocators.employeeNameInput).type('a').wait(1500);
         cy.get(userDataPageLocators.employeeNameOption).should('be.visible').first().click();
         cy.get(userDataPageLocators.userRoleDropdown).eq(1).click();
         cy.get(userDataPageLocators.statusOptionEnabled).contains('Enabled').click();
@@ -46,6 +49,13 @@ class AdminPageActions{
         cy.get(userDataPageLocators.saveButton).click();
     }
 
+    addRandomUsers(users) {
+        users.forEach(user => {
+            this.clickAddButton();
+            this.addRandomEssUser(user);
+            adminPageAsserions.verifyUserCreateSuccessfullyMessage();
+        });
+    }
     
 }
 

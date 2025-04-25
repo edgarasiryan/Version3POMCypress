@@ -22,6 +22,20 @@ class AdminPageAssertions extends BaseAssertions {
         cy.get(userDataPageLocators.userCreateSuccessfullyMessage).should('contain', 'Successfully Saved')  
     }
 
+    searchAndVerifyUser(users) {
+        users.forEach(user => {
+            cy.get(userDataPageLocators.searchInput).clear().type(user.username); 
+            cy.get(userDataPageLocators.searchButton).contains('Search').click();
+            cy.get(userDataPageLocators.userList).should('contain', user.username);
+            cy.get(`${userDataPageLocators.userRowSelector} .oxd-table-cell:contains("${user.username}")`)
+            .closest('.oxd-table-row')
+            .click();
+            cy.get(userDataPageLocators.userListCells).should('contain', user.username);
+            cy.get(userDataPageLocators.userListCells).should('contain', 'ESS');
+            cy.get(userDataPageLocators.userListCells).should('contain', 'Enabled');
+        });
+    }
+    
     
 }
 
