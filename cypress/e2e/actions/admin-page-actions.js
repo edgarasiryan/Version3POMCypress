@@ -28,6 +28,25 @@ class AdminPageActions{
     saveUserDataChanges() {
         cy.get(userDataPageLocators.userDataChangeSave).click();
     }
+
+    clickAddButton() {
+        cy.get(userDataPageLocators.userPageEditButtons).contains('Add').click();
+    }
+
+    createRandomEssUser(user) {
+        cy.get(userDataPageLocators.userRoleDropdown).eq(0).click();
+        cy.get(userDataPageLocators.userRoleOptionESS).contains('ESS').click();
+        cy.get(userDataPageLocators.employeeNameInput).type('a').wait(2500);
+        cy.get(userDataPageLocators.employeeNameOption).should('be.visible').first().click();
+        cy.get(userDataPageLocators.userRoleDropdown).eq(1).click();
+        cy.get(userDataPageLocators.statusOptionEnabled).contains('Enabled').click();
+        cy.get(userDataPageLocators.usernameInput).eq(1).type(user.username);
+        cy.get(userDataPageLocators.passwordInput).eq(0).type(user.password);
+        cy.get(userDataPageLocators.passwordInput).eq(1).type(user.password);
+        cy.get(userDataPageLocators.saveButton).click();
+    }
+
+    
 }
 
 export default AdminPageActions;

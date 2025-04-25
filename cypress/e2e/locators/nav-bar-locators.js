@@ -1,3 +1,9 @@
+//Top Nav Bar
+const topNavBarLocators = {
+    userDropDown: '.oxd-userdropdown-img',
+    userDropDownLinks: '.oxd-userdropdown-link',
+}
+
 //Left Nav Bar
 const leftNavBarLocators = {
     menuItemText: '.oxd-main-menu-item--name',
@@ -10,4 +16,4 @@ const leftNavBarItems = {
 
 
 
-export { leftNavBarLocators, leftNavBarItems };
+export { leftNavBarLocators, leftNavBarItems, topNavBarLocators };

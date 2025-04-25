@@ -1,4 +1,4 @@
-import { leftNavBarItems, leftNavBarLocators } from "../locators/nav-bar-locators";
+import { leftNavBarItems, leftNavBarLocators, topNavBarLocators } from "../locators/nav-bar-locators";
 
 class NavBarActions {
     navigateToSection(itemName) {
@@ -10,6 +10,11 @@ class NavBarActions {
 
     navigateAdminTab() {
         this.navigateToSection(leftNavBarItems.adminMenuItem);
+    }
+
+    logOut() {
+        cy.get(topNavBarLocators.userDropDown).click();
+        cy.get(topNavBarLocators.userDropDownLinks).contains('Logout').click()
     }
 }
 

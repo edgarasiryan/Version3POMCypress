@@ -17,14 +17,34 @@ const usersTableLocators = {
 }
 
 const userDataPageLocators = {
+    // ==== USER CREATION ====
+    userRoleDropdown: '.oxd-select-text',                            
+    userRoleOptionESS: '.oxd-select-dropdown',
+    employeeNameInput: 'input[placeholder="Type for hints..."]',
+    employeeNameOption: '.oxd-autocomplete-option',
+    statusOptionEnabled: '.oxd-select-dropdown',
+    usernameInput: 'input.oxd-input',
+    passwordInput: 'input[type="password"]',
+    confirmPasswordInput: 'input[type="password"]',
+    saveButton: 'button[type="submit"]',
+  
+    // ==== USER EDITING ====
+    userRowSelector: '.oxd-table-row',
+    editIconSelector: 'i.oxd-icon.bi-pencil-fill',
+    userPageEditButtons: '.oxd-button--secondary',
+   
+    // ==== CHANGE PASSWORD ====
     userChangePasswordChackBox: '.oxd-checkbox-wrapper input[type="checkbox"]',
     userChangePasswordField: 'input[type="password"]:first',
     userConfirmPasswordField: 'input[type="password"]:last',
     userPasswordHint: '.user-password-hint',
     userDataChangeSave: '.oxd-button--secondary',
+    
+  
+    // ==== NOTIFICATIONS / VALIDATION ====
     userSuccessfullyMessage: '.oxd-text--p',
-    userRowSelector: '.oxd-table-row',
-    editIconSelector:'i.oxd-icon.bi-pencil-fill',
-}
+    userCreateSuccessfullyMessage:'.oxd-toast-content--success'
+  };
+  
 
 export { adminPageLocators, adminBarBodyItems, usersTableLocators, userDataPageLocators }

@@ -1,4 +1,5 @@
 import { homePageLocators } from "../locators/home-page-locators"; 
+import { loginPageLocators } from "../locators/login-page-locators";
 
 class LoginPageAssertions {
     
@@ -7,6 +8,9 @@ class LoginPageAssertions {
         cy.get(homePageLocators.profileAvatar).should('be.visible');
     }
 
+    verifyLogoutSuccess() {
+        cy.get(loginPageLocators.loginButton).should('be.visible')
+    }
 }
 
 export default LoginPageAssertions;
